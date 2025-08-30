@@ -1,0 +1,934 @@
+body {
+  background-color: #ffffff; /* light background */
+  color: #333333;            /* dark text */
+  font-family: 'Archivo', sans-serif !important;
+}
+
+/* Ensure all elements use Archivo, overriding Bootstrap defaults */
+*,
+*::before,
+*::after {
+  font-family: 'Archivo', sans-serif !important;
+}
+
+.navbar-custom {
+  background-color: #ffffff;
+  padding: 0px 20px;
+  margin: 1rem auto;
+  border-radius: 45px;
+  max-width: 90%;         
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1030;
+  border: 1px solid #e0e0e0;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.navbar-custom .nav-link {
+  color: #333333 !important;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #00adb5;
+}
+
+.navbar-custom .nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: #00adb5;
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Hamburger menu styling */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2851, 51, 51, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-custom .nav-link:hover::before,
+.navbar-custom .nav-link:focus::before,
+.navbar-custom .nav-link.active::before {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;  /* light dropdown */
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  color: #333333;
+}
+
+.dropdown-item:hover {
+  background-color: #f8f9fa;
+  color: #00adb5;
+}
+
+.navbar-nav {
+  margin-right: 140px;
+}
+
+@media (min-width: 992px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+/* Fixed Height Typewriter Effect Styles */
+#typewriter-container {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-height: 50px; /* Fixed minimum height for desktop */
+  overflow: hidden;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+.typewriter-cursor {
+  color: #00adb5;
+  font-weight: bold;
+  animation: blink 1s infinite;
+  display: inline;
+}
+
+#typewriter-text {
+  display: inline;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments with fixed heights */
+@media (max-width: 768px) {
+  #typewriter-container {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    min-height: 80px; /* Slightly more height for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  #typewriter-container {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    min-height: 70px; /* More height for phones due to wrapping */
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* AI Word Wave Effect */
+.ai-word {
+  position: relative;
+  display: inline;
+  background: linear-gradient(-45deg, #8b5cf6, #06b6d4, #e879f9, #a855f7, #0ea5e9);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  animation: aiWave 6s linear infinite;
+}
+
+.ai-word::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(-45deg,
+    rgba(139, 92, 246, 0.1),
+    rgba(6, 182, 212, 0.1),
+    rgba(232, 121, 249, 0.1),
+    rgba(168, 85, 247, 0.1));
+  background-size: 300% 300%;
+  border-radius: 2px;
+  z-index: -1;
+  filter: blur(1px);
+  animation: aiGlow 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes aiWave {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  100% {
+    background-position: 300% 50%;
+    transform: scale(1);
+  }
+}
+
+@keyframes aiGlow {
+  0% {
+    background-position: 0% 50%;
+    opacity: 0.25;
+  }
+  100% {
+    background-position: 300% 50%;
+    opacity: 0.25;
+  }
+}
+
+/* Hero Section Light */
+section.bg-light {
+  background-color: #f8f9fa !important;
+  color: #333333;
+}
+
+.section-margin {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 45px;
+  margin: 1rem auto;        /* centers it */
+  border-radius: 45px;
+  max-width: 90%; 
+}
+
+.part1 {
+  color: #333333;
+  background-color: #ffffff !important;
+  border-radius: 25px 25px 25px 25px;
+  padding: 1rem;
+  font-size: 1.25rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.custom-sticky {
+  top: 8px; /* or whatever gap you want */
+  z-index: 1020; /* ensure it stays above other content */
+}
+
+.products {
+  padding-bottom: 0.5rem;
+  color: #333333;
+}
+
+.prod-margin {
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.invert-colors {
+  filter: none; /* Remove invert filter for light theme */
+  scale: 0.9;
+}
+
+/* ===== PRICING CARDS WITH BACKGROUND IMAGES ===== */
+
+/* Ensure all pricing cards have the same height */
+.pricing-cards-container .row {
+  display: flex;
+  align-items: stretch; /* Make all cards same height */
+}
+
+.pricing-cards-container .card {
+  height: 100%; /* Fill parent container */
+  min-height: 350px; /* Consistent minimum height for desktop */
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-cards-container .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-cards-container .card-body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+}
+
+/* Background image styles for each card */
+.card-classic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/TASK.png');
+  background-size: 80px auto;
+  background-position: bottom 20px right 20px;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.card-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/DATA.png');
+  background-size: 80px auto;
+  background-position: bottom 20px right 20px;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 1;
+  border-radius: 15px;
+}
+
+.card-enterprise::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/TEAM.png');
+  background-size: 80px auto;
+  background-position: bottom 20px right 20px;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: 1;
+  border-radius: 15px;
+}
+
+/* Card content styling */
+.pricing-cards-container .card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.pricing-cards-container .card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: #555555;
+}
+
+.pricing-cards-container .list-unstyled {
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.pricing-cards-container .list-unstyled li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+  color: #666666;
+}
+
+.pricing-cards-container .btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* ===== MOBILE RESPONSIVE IMPROVEMENTS ===== */
+
+/* Base image scaling for all screen sizes */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Desktop image sizes (maintain original) */
+@media (min-width: 992px) {
+  .img-fluid {
+    transform: scale(1);
+  }
+  
+  .invert-colors {
+    transform: scale(0.5);
+  }
+}
+
+/* Container and Section Responsive Adjustments */
+@media (max-width: 991.98px) {
+  .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .section-margin {
+    margin: 0.5rem auto;
+    max-width: 95%;
+    border-radius: 25px;
+  }
+  
+  .prod-margin {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Image container scaling */
+  .col-md-4 img {
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    transform: scale(0.8);
+  }
+  
+  .invert-colors {
+    transform: scale(0.4);
+  }
+
+  /* Pricing cards tablet adjustments */
+  .pricing-cards-container .card {
+    min-height: 320px;
+  }
+  
+  .pricing-cards-container .card-body {
+    padding: 1.25rem;
+  }
+  
+  .pricing-cards-container .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .pricing-cards-container .card-text {
+    font-size: 0.95rem;
+  }
+  
+  .pricing-cards-container .list-unstyled li {
+    font-size: 0.85rem;
+  }
+  
+  .pricing-cards-container .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  /* Adjust background image size for tablet */
+  .card-classic::before,
+  .card-pro::before,
+  .card-enterprise::before {
+    background-size: 70px auto;
+    background-position: bottom 15px right 15px;
+  }
+}
+
+/* Tablet Responsive (768px - 991px) */
+@media (max-width: 991.98px) and (min-width: 768px) {
+  /* Navbar adjustments */
+  .navbar-custom {
+    padding: 0px 15px;
+    border-radius: 35px;
+  }
+  
+  .navbar-nav {
+    margin-right: 0px;
+  }
+  
+  /* Typography scaling */
+  .display-4 {
+    font-size: 2.5rem !important;
+  }
+  
+  .part1 {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  /* Image scaling */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    margin: 1rem auto;
+    transform: scale(0.7);
+  }
+  
+  .invert-colors {
+    transform: scale(0.35);
+    width: 100%;
+  }
+  
+  .col-md-4 img {
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    transform: scale(0.7);
+  }
+}
+
+/* Mobile Responsive (576px - 767px) */
+@media (max-width: 767.98px) {
+  /* Navbar mobile adjustments */
+  .navbar-custom {
+    padding: 5px 15px;
+    border-radius: 25px;
+    margin: 0.5rem auto;
+  }
+  
+  .navbar-brand img {
+    height: 40px;
+  }
+  
+  .navbar-nav {
+    margin-right: 0px;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .nav-item {
+    margin-bottom: 5px;
+  }
+  
+  /* Hero section mobile */
+  .display-4 {
+    font-size: 2rem !important;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: #333333;
+  }
+  
+  .lead {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555555;
+  }
+  
+  .btn-lg {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  /* Content sections mobile */
+  .part1 {
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 15px;
+    line-height: 1.6;
+  }
+  
+  .part1 h1,
+  .part1 h2 {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem;
+  }
+  
+  /* Images mobile scaling */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    margin: 0.5rem auto;
+    transform: scale(0.6);
+  }
+  
+  .invert-colors {
+    transform: scale(0.4);
+    width: 100%;
+  }
+  
+  .col-md-4 img {
+    width: 100%;
+    height: auto;
+    margin: 0.5rem auto;
+    display: block;
+    transform: scale(0.6);
+  }
+  
+  /* Specific image containers */
+  .part1img img {
+    width: 100%;
+    margin: 0.25rem auto;
+    transform: scale(0.5);
+  }
+  
+  /* Pricing cards mobile adjustments */
+  .pricing-cards-container .card {
+    margin-bottom: 1rem;
+    min-height: 280px; /* Consistent height for mobile */
+  }
+  
+  .pricing-cards-container .card-body {
+    padding: 1rem;
+  }
+  
+  .pricing-cards-container .card-title {
+    font-size: 1.2rem;
+  }
+  
+  .pricing-cards-container .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .pricing-cards-container .list-unstyled li {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .pricing-cards-container .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Mobile background image adjustments */
+  .card-classic::before,
+  .card-pro::before,
+  .card-enterprise::before {
+    background-size: 60px auto;
+    background-position: bottom 10px right 10px;
+    opacity: 0.12;
+  }
+  
+  /* Footer mobile */
+  .bg-dark .col-md-4 {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Section spacing mobile */
+  .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}
+
+/* Small Mobile (up to 575px) */
+@media (max-width: 575.98px) {
+  body {
+    font-size: 0.9rem;
+  }
+  
+  /* Navbar extra small mobile */
+  .navbar-custom {
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin: 0.25rem auto;
+  }
+  
+  .navbar-brand img {
+    height: 35px;
+  }
+  
+  /* Hero section extra small */
+  .display-4 {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+    color: #333333;
+  }
+  
+  .lead {
+    font-size: 0.9rem;
+    color: #555555;
+  }
+  
+  .btn-lg {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* Content sections extra small */
+  .part1 {
+    font-size: 0.9rem;
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+  
+  .part1 h1,
+  .part1 h2 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Images extra small scaling */
+  .img-fluid {
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    transform: scale(0.4);
+  }
+  
+  .invert-colors {
+    transform: scale(0.25);
+    width: 100%;
+  }
+  
+  .col-md-4 img {
+    width: 100%;
+    height: auto;
+    margin: 1rem auto;
+    display: block;
+    transform: scale(0.4);
+  }
+  
+  /* Specific image containers */
+  .part1img img {
+    width: 100%;
+    margin: 0.5rem auto;
+    transform: scale(0.3);
+  }
+  
+  /* Pricing cards extra small adjustments */
+  .pricing-cards-container .card {
+    min-height: 250px; /* Smaller height for very small screens */
+    margin-bottom: 1rem;
+  }
+  
+  .pricing-cards-container .card-body {
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.98);
+  }
+  
+  .pricing-cards-container .card-title {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem;
+  }
+  
+  .pricing-cards-container .card-text {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.75rem;
+  }
+  
+  .pricing-cards-container .list-unstyled {
+    margin-bottom: 1rem;
+  }
+  
+  .pricing-cards-container .list-unstyled li {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem;
+  }
+  
+  .pricing-cards-container .btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  /* Extra small background image adjustments */
+  .card-classic::before,
+  .card-pro::before,
+  .card-enterprise::before {
+    background-size: 50px auto;
+    background-position: bottom 8px right 8px;
+    opacity: 0.1;
+  }
+  
+  /* Section margins extra small */
+  .section-margin {
+    margin: 0.25rem auto;
+    max-width: 98%;
+    border-radius: 15px;
+  }
+  
+  .prod-margin {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  /* Container padding extra small */
+  .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Typography adjustments */
+  .products {
+    font-size: 1.5rem;
+    padding-bottom: 0.25rem;
+  }
+  
+  /* Footer extra small */
+  footer .small {
+    font-size: 0.8rem !important;
+  }
+  
+  footer h5,
+  footer h6 {
+    font-size: 1rem;
+  }
+}
+
+/* Landscape phone adjustments */
+@media (max-width: 767px) and (orientation: landscape) {
+  .display-4 {
+    font-size: 1.8rem !important;
+  }
+  
+  .py-5 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  #typewriter-container {
+    min-height: 40px;
+  }
+  
+  /* Landscape pricing cards */
+  .pricing-cards-container .card {
+    min-height: 220px;
+  }
+}
+
+/* Row and column adjustments for mobile */
+@media (max-width: 767.98px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-direction: row; /* Keep horizontal layout on mobile */
+    align-items: center;
+  }
+  
+  .col-md-4,
+  .col-md-8 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  
+  /* Maintain side-by-side layout on mobile */
+  .col-md-8 {
+    flex: 0 0 60%; /* Content takes 60% width */
+    max-width: 60%;
+  }
+  
+  .col-md-4 {
+    flex: 0 0 40%; /* Image takes 40% width */
+    max-width: 40%;
+  }
+  
+  /* Center align images on mobile */
+  .col-md-4 img {
+    display: block;
+    margin: 0.5rem auto;
+    width: 100%;
+    height: auto;
+    transform: scale(0.6);
+  }
+  
+  /* Special handling for pricing cards section - stack vertically on mobile */
+  .pricing-cards-container .row {
+    flex-direction: column !important; /* Stack cards vertically on mobile */
+    align-items: stretch;
+  }
+  
+  .pricing-cards-container .col-md-4 {
+    flex: 1 1 100%; /* Full width for each card */
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Utility classes for better mobile experience */
+@media (max-width: 767.98px) {
+  .mobile-center {
+    text-align: center;
+  }
+  
+  .mobile-padding {
+    padding: 0.5rem;
+  }
+  
+  .mobile-margin {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Footer Light Theme */
+footer.bg-dark {
+  background-color: #343a40 !important; /* Keep footer dark for contrast */
+  color: #ffffff;
+}
+
+footer.bg-dark .text-light {
+  color: #ffffff !important;
+}
+
+.task{
+  scale: 0.5;
+}
+
+/* Center align image columns both horizontally and vertically */
+.col-md-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure text columns also align vertically for consistency */
+.col-md-8 {
+  display: flex;
+  align-items: center;
+}
+
+/* Make sure the part1 content doesn't interfere with flexbox */
+.part1 {
+  width: 100%;
+}
+
+/* Specific styling for the part1img container */
+.part1img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Alternative approach - if you want to keep existing structure, 
+   add this class to your image containers in HTML */
+.center-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px; /* Adjust based on your content height */
+}

@@ -1,0 +1,50 @@
+/* Global Font and Body */
+body {
+  font-family: 'Archivo', sans-serif !important;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar-custom {
+  background-color: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 1030;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+.navbar-custom .nav-link {
+  color: #000 !important;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #00adb5;
+}
+
+.navbar-custom .nav-link.active {
+  color: #00adb5;
+  font-weight: 600;
+}
+
+/* Section Title */
+h2 {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+}
+/* Responsive Layout for Action Buttons */
+@media (max-width: 767px) {
+  .card-body {
+    flex-direction: column !important;
+    text-align: left;
+  }
+}
