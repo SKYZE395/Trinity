@@ -1139,14 +1139,30 @@ body.dark-mode .part1 {
 
 /* Pricing Cards */
 body.dark-mode .pricing-cards-container .card {
-  background: #1e1e1e;
-  border: 1px solid #333;
+  background: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .pricing-cards-container .card-body {
+  background: rgba(18, 18, 18, 0.95) !important; /* match dark mode */
+  color: #e0e0e0 !important;
 }
 
 body.dark-mode .pricing-cards-container .card-title,
 body.dark-mode .pricing-cards-container .card-text,
 body.dark-mode .pricing-cards-container li {
-  color: #e0e0e0;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .pricing-cards-container .btn {
+  border-color: #00adb5;
+  color: #00adb5;
+}
+
+body.dark-mode .pricing-cards-container .btn:hover {
+  background-color: #00adb5;
+  color: #fff;
 }
 
 /* Carousel */
@@ -1170,4 +1186,72 @@ body.dark-mode .copyright-text {
 /* Invert images only in dark mode */
 body.dark-mode img.invert-colors {
   filter: invert(1) hue-rotate(180deg);
+}
+
+/* === Dark Mode Pricing Card Themes === */
+
+/* Classic = Green */
+body.dark-mode .card-classic {
+  background: #133a13 !important;   /* deep green */
+  border: 1px solid #1f5e1f !important;
+}
+body.dark-mode .card-classic .card-title,
+body.dark-mode .card-classic .card-text,
+body.dark-mode .card-classic li {
+  color: #c8facc !important;       /* light green text */
+}
+
+/* Pro = Orange */
+body.dark-mode .card-pro {
+  background: #3a200f !important;  /* deep orange-brown */
+  border: 1px solid #663a1a !important;
+}
+body.dark-mode .card-pro .card-title,
+body.dark-mode .card-pro .card-text,
+body.dark-mode .card-pro li {
+  color: #ffd9b3 !important;       /* light orange text */
+}
+
+/* Enterprise = Lavender */
+body.dark-mode .card-enterprise {
+  background: #2b1f3d !important;  /* deep lavender-purple */
+  border: 1px solid #5e3a7a !important;
+}
+body.dark-mode .card-enterprise .card-title,
+body.dark-mode .card-enterprise .card-text,
+body.dark-mode .card-enterprise li {
+  color: #e6ccff !important;       /* lavender text */
+}
+
+/* Shared dark mode card-body fix */
+body.dark-mode .pricing-cards-container .card-body {
+  background: transparent !important; /* use themed background */
+}
+
+/* Buttons per card in dark mode */
+body.dark-mode .card-classic .btn {
+  border-color: #28a745;
+  color: #28a745;
+}
+body.dark-mode .card-classic .btn:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+body.dark-mode .card-pro .btn {
+  border-color: #ff8800;
+  color: #ff8800;
+}
+body.dark-mode .card-pro .btn:hover {
+  background-color: #ff8800;
+  color: #fff;
+}
+
+body.dark-mode .card-enterprise .btn {
+  border-color: #a855f7;
+  color: #a855f7;
+}
+body.dark-mode .card-enterprise .btn:hover {
+  background-color: #a855f7;
+  color: #fff;
 }
