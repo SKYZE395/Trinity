@@ -23,7 +23,7 @@ body {
 }
 
 .navbar-brand img {
-  height: 40px;
+  height: 50px;
   width: auto;
   display: block;
 }
@@ -133,7 +133,7 @@ body {
   #typewriter-container {
     font-size: 0.9rem;
     line-height: 1.5;
-    min-height: 80px; /* Slightly more height for tablets */
+    min-height: 45px; /* Slightly more height for tablets */
   }
 }
 
@@ -141,7 +141,7 @@ body {
   #typewriter-container {
     font-size: 0.8rem;
     line-height: 1.6;
-    min-height: 70px; /* More height for phones due to wrapping */
+    min-height: 45px; /* More height for phones due to wrapping */
   }
 }
 
@@ -236,7 +236,7 @@ section.bg-light {
 }
 
 .custom-sticky {
-  top: 8px; /* or whatever gap you want */
+  top: 15px; /* or whatever gap you want */
   z-index: 1020; /* ensure it stays above other content */
 }
 
@@ -377,6 +377,144 @@ section.bg-light {
   transition: all 0.3s ease;
 }
 
+/* ===== DESKTOP LAYOUT ===== */
+/* Center align image columns both horizontally and vertically */
+.col-md-4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure text columns also align vertically for consistency */
+.col-md-8 {
+  display: flex;
+  align-items: center;
+}
+
+/* Make sure the part1 content doesn't interfere with flexbox */
+.part1 {
+  width: 100%;
+}
+
+/* Image container styling */
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.task {
+  scale: 0.7;
+}
+
+/* ===== FOOTER STYLES ===== */
+footer.bg-dark {
+  background-color: #343a40 !important;
+  color: #ffffff;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
+  filter: brightness(1) invert(0); /* Make logo white for dark footer */
+}
+
+.footer-section {
+  padding: 0.5rem 0;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 1.1rem;
+  border-bottom: 2px solid #00adb5;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem !important;
+  display: inline-block;
+}
+
+.footer-description {
+  color: #c8c9ca;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-link {
+  color: #c8c9ca !important;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00adb5 !important;
+  text-decoration: none !important;
+}
+
+.footer-contact {
+  color: #c8c9ca;
+  font-size: 0.9rem;
+}
+
+.footer-contact a {
+  color: #c8c9ca !important;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #00adb5 !important;
+}
+
+.footer-contact i {
+  width: 16px;
+  color: #00adb5;
+}
+
+/* Social Media Styles */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.social-link:hover {
+  background-color: #00adb5;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+.copyright-text {
+  color: #c8c9ca;
+}
+
+.footer-links-bottom a {
+  color: #c8c9ca !important;
+  font-size: 0.85rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links-bottom a:hover {
+  color: #00adb5 !important;
+}
+
 /* ===== MOBILE RESPONSIVE IMPROVEMENTS ===== */
 
 /* Base image scaling for all screen sizes */
@@ -508,8 +646,45 @@ section.bg-light {
   }
 }
 
-/* Mobile Responsive (576px - 767px) */
+/* ===== MOBILE LAYOUT CHANGES ===== */
+/* Mobile Responsive (up to 767px) - Images on Top */
 @media (max-width: 767.98px) {
+  /* Reset desktop flex properties for mobile */
+  .col-md-4,
+  .col-md-8 {
+    display: block;
+    align-items: unset;
+    justify-content: unset;
+  }
+  
+  /* Section row adjustments */
+  .section-row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .section-row .col-md-4,
+  .section-row .col-md-8 {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Image containers - full width and centered */
+  .image-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .image-container img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    max-width: 200px; /* Reasonable size for mobile */
+  }
+  
   /* Navbar mobile adjustments */
   .navbar-custom {
     padding: 5px 15px;
@@ -518,7 +693,7 @@ section.bg-light {
   }
   
   .navbar-brand img {
-    height: 40px;
+    height: 50px;
   }
   
   .navbar-nav {
@@ -541,7 +716,7 @@ section.bg-light {
   
   .lead {
     font-size: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.6rem;
     color: #555555;
   }
   
@@ -562,35 +737,6 @@ section.bg-light {
   .part1 h2 {
     font-size: 1.5rem !important;
     margin-bottom: 1rem;
-  }
-  
-  /* Images mobile scaling */
-  .img-fluid {
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-    margin: 0.5rem auto;
-    transform: scale(0.6);
-  }
-  
-  .invert-colors {
-    transform: scale(0.4);
-    width: 100%;
-  }
-  
-  .col-md-4 img {
-    width: 100%;
-    height: auto;
-    margin: 0.5rem auto;
-    display: block;
-    transform: scale(0.6);
-  }
-  
-  /* Specific image containers */
-  .part1img img {
-    width: 100%;
-    margin: 0.25rem auto;
-    transform: scale(0.5);
   }
   
   /* Pricing cards mobile adjustments */
@@ -631,15 +777,66 @@ section.bg-light {
     opacity: 0.12;
   }
   
-  /* Footer mobile */
-  .bg-dark .col-md-4 {
-    margin-bottom: 1.5rem;
+  /* Special handling for pricing cards section - stack vertically on mobile */
+  .pricing-cards-container .row {
+    flex-direction: column !important; /* Stack cards vertically on mobile */
+    align-items: stretch;
+  }
+  
+  .pricing-cards-container .col-md-4 {
+    flex: 1 1 100%; /* Full width for each card */
+    max-width: 100%;
+    margin-bottom: 1rem;
   }
   
   /* Section spacing mobile */
   .py-5 {
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
+  }
+  
+  /* Footer mobile adjustments */
+  .footer-logo {
+    height: 40px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-section {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-heading {
+    font-size: 1rem;
+    margin-bottom: 1rem !important;
+  }
+  
+  .footer-description {
+    font-size: 0.85rem;
+  }
+  
+  .footer-link,
+  .footer-contact {
+    font-size: 0.85rem;
+  }
+  
+  .social-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .copyright-text {
+    text-align: center !important;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links-bottom {
+    text-align: center !important;
+  }
+  
+  .footer-links-bottom a {
+    display: inline-block;
+    margin: 0.25rem;
   }
 }
 
@@ -690,32 +887,9 @@ section.bg-light {
     margin-bottom: 0.75rem;
   }
   
-  /* Images extra small scaling */
-  .img-fluid {
-    width: 100%;
-    height: auto;
-    margin: 1rem auto;
-    transform: scale(0.4);
-  }
-  
-  .invert-colors {
-    transform: scale(0.25);
-    width: 100%;
-  }
-  
-  .col-md-4 img {
-    width: 100%;
-    height: auto;
-    margin: 1rem auto;
-    display: block;
-    transform: scale(0.4);
-  }
-  
-  /* Specific image containers */
-  .part1img img {
-    width: 100%;
-    margin: 0.5rem auto;
-    transform: scale(0.3);
+  /* Images extra small - even smaller for very small screens */
+  .image-container img {
+    max-width: 150px; /* Smaller for extra small screens */
   }
   
   /* Pricing cards extra small adjustments */
@@ -795,6 +969,16 @@ section.bg-light {
   footer h6 {
     font-size: 1rem;
   }
+  
+  .footer-logo {
+    height: 35px;
+  }
+  
+  .social-link {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
 }
 
 /* Landscape phone adjustments */
@@ -816,54 +1000,9 @@ section.bg-light {
   .pricing-cards-container .card {
     min-height: 220px;
   }
-}
-
-/* Row and column adjustments for mobile */
-@media (max-width: 767.98px) {
-  .row {
-    margin-left: 0;
-    margin-right: 0;
-    display: flex;
-    flex-direction: row; /* Keep horizontal layout on mobile */
-    align-items: center;
-  }
   
-  .col-md-4,
-  .col-md-8 {
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-  
-  /* Maintain side-by-side layout on mobile */
-  .col-md-8 {
-    flex: 0 0 60%; /* Content takes 60% width */
-    max-width: 60%;
-  }
-  
-  .col-md-4 {
-    flex: 0 0 40%; /* Image takes 40% width */
-    max-width: 40%;
-  }
-  
-  /* Center align images on mobile */
-  .col-md-4 img {
-    display: block;
-    margin: 0.5rem auto;
-    width: 100%;
-    height: auto;
-    transform: scale(0.6);
-  }
-  
-  /* Special handling for pricing cards section - stack vertically on mobile */
-  .pricing-cards-container .row {
-    flex-direction: column !important; /* Stack cards vertically on mobile */
-    align-items: stretch;
-  }
-  
-  .pricing-cards-container .col-md-4 {
-    flex: 1 1 100%; /* Full width for each card */
-    max-width: 100%;
-    margin-bottom: 1rem;
+  .image-container img {
+    max-width: 120px; /* Smaller in landscape */
   }
 }
 
@@ -882,53 +1021,153 @@ section.bg-light {
   }
 }
 
-/* Footer Light Theme */
-footer.bg-dark {
-  background-color: #343a40 !important; /* Keep footer dark for contrast */
-  color: #ffffff;
+/* ===== Carousel Styling ===== */
+.carousel-section {
+  margin: 2rem auto;
+  max-width: 90%;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-footer.bg-dark .text-light {
-  color: #ffffff !important;
+.carousel-img {
+  height: 450px;
+  object-fit: cover;
+  border-radius: 25px;
 }
 
-.task{
-  scale: 0.5;
+/* Quotes at the bottom */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 1rem;
+  bottom: 20px;
 }
 
-/* Center align image columns both horizontally and vertically */
-.col-md-4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.carousel-caption p {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0;
 }
 
-/* Ensure text columns also align vertically for consistency */
-.col-md-8 {
-  display: flex;
-  align-items: center;
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .carousel-img {
+    height: 250px;
+  }
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
 }
 
-/* Make sure the part1 content doesn't interfere with flexbox */
-.part1 {
-  width: 100%;
+/* Carousel captions for small screens */
+@media (max-width: 768px) {
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem;
+    bottom: 10px;
+    left: 5%;
+    right: 5%;
+    border-radius: 8px;
+  }
+
+  .carousel-caption p {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
 }
 
-/* Specific styling for the part1img container */
-.part1img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+.carousel-caption {
+  bottom: 30px; /* push caption up */
 }
 
-/* Alternative approach - if you want to keep existing structure, 
-   add this class to your image containers in HTML */
-.center-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 300px; /* Adjust based on your content height */
+/* ===== DARK MODE GLOBAL ===== */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Headings, paragraphs, links */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode a {
+  color: #e0e0e0 !important;
+}
+
+/* Navbar */
+body.dark-mode .navbar-custom {
+  background-color: #1e1e1e !important;
+  border: 1px solid #333;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .navbar-custom .nav-link {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark-mode .dropdown-item {
+  color: #e0e0e0;
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: #333;
+  color: #00adb5;
+}
+
+/* Sections */
+body.dark-mode section {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0;
+}
+
+body.dark-mode .part1 {
+  background-color: #1e1e1e !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #333;
+}
+
+/* Pricing Cards */
+body.dark-mode .pricing-cards-container .card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+body.dark-mode .pricing-cards-container .card-title,
+body.dark-mode .pricing-cards-container .card-text,
+body.dark-mode .pricing-cards-container li {
+  color: #e0e0e0;
+}
+
+/* Carousel */
+body.dark-mode .carousel-caption {
+  background: rgba(0,0,0,0.7);
+}
+
+/* Footer */
+body.dark-mode footer {
+  background-color: #000 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .footer-heading,
+body.dark-mode .footer-link,
+body.dark-mode .footer-contact,
+body.dark-mode .copyright-text {
+  color: #e0e0e0 !important;
+}
+
+/* Invert images only in dark mode */
+body.dark-mode img.invert-colors {
+  filter: invert(1) hue-rotate(180deg);
 }

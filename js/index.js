@@ -107,18 +107,143 @@ class TypeWriter {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  
-  const typewriterElement = document.getElementById('typewriter-text');
-  const texts = [
-    'AI-powered task prioritization helps you focus on what matters most.',
-    'Smart analytics identify critical deadlines and optimize your workflow.',
-    'Intelligent insights transform your productivity and drive success.'
-  ];
-  new TypeWriter(typewriterElement, texts, {
-    typeSpeed: 50,
-    deleteSpeed: 30,
-    pauseTime: 3000
+// Smooth scrolling for anchor links
+function initSmoothScrolling() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href !== '#' && href.length > 1) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
   });
+}
 
+// Navbar scroll effect
+function initNavbarScrollEffect() {
+  const navbar = document.querySelector('.navbar-custom');
+  let lastScrollTop = 0;
+
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 100) {
+      navbar.style.transform = 'translateY(-10px)';
+      navbar.style.boxShadow = '0 8px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+      navbar.style.transform = 'translateY(0)';
+      navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+}
+
+// Animation on scroll for sections
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  // Observe all sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(30px)';
+    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(section);
+  });
+}
+
+// Pricing cards hover effect enhancement
+function initPricingCardEffects() {
+  const cards = document.querySelectorAll('.pricing-cards-container .card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'translateY(0) scale(1)';
+    });
+  });
+}
+
+// Initialize all functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize typewriter effect
+  const typewriterElement = document.getElementById('typewriter-text');
+  if (typewriterElement) {
+    const texts = [
+      'AI-powered task prioritization helps you focus on what matters most.',
+      'Smart analytics identify critical deadlines and optimize your workflow.',
+      'Intelligent insights transform your productivity and drive success.'
+    ];
+    
+    new TypeWriter(typewriterElement, texts, {
+      typeSpeed: 50,
+      deleteSpeed: 30,
+      pauseTime: 3000
+    });
+  }
+
+  // Initialize other features
+  initSmoothScrolling();
+  initNavbarScrollEffect();
+  initScrollAnimations();
+  initPricingCardEffects();
+
+  // Add loading effect
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.body.style.transition = 'opacity 0.5s ease';
+    document.body.style.opacity = '1';
+  }, 100);
+
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    // Load saved theme from localStorage
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeToggle.querySelector('i').classList.remove('fa-moon');
+      themeToggle.querySelector('i').classList.add('fa-sun');
+    }
+  
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    
+      // Switch icon
+      const icon = themeToggle.querySelector('i');
+      if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
+  
 });
